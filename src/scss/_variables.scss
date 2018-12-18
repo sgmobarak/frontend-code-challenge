@@ -1,0 +1,40 @@
+
+// Body
+$body-bg: #f8fafc;
+
+// Typography
+//$font-family-sans-serif: "Nunito", sans-serif;
+$font-family-sans-serif:
+// Safari for OS X and iOS (San Francisco)
+-apple-system,
+// Chrome < 56 for OS X (San Francisco)
+BlinkMacSystemFont,
+// Windows
+"Segoe UI",
+// Android
+"Roboto",
+// Basic web fallback
+"Nunito", sans-serif,
+// Emoji fonts
+"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
+
+$font-size-base: 0.9rem;
+$line-height-base: 1.6;
+
+$content-bg: #ffffff;
+$content-pad: 10px;
+
+$title-panel-bg: #ffffff;
+$title-panel-pad: 10px;
+
+// Colors
+$blue: #3490dc;
+$indigo: #6574cd;
+$purple: #9561e2;
+$pink: #f66D9b;
+$red: #e3342f;
+$orange: #f6993f;
+$yellow: #ffed4a;
+$green: #38c172;
+$teal: #4dc0b5;
+$cyan: #6cb2eb;

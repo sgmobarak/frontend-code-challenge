@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Frontend Coding Challenge</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/app.min.css" type="text/css">
+
+</head>
+
+<body>
+    <div id="app">
+        <nav class="navbar navbar-sticky navbar-expand-md navbar-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="javascript:;" title="Frontend Coding Challenge">
+                    # Coding Challenge
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <!-- Left Side Of Navbar -->
+                    <ul class="navbar-nav mr-auto">
+
+                    </ul>
+                    <!-- Right Side Of Navbar -->
+                    <ul class="navbar-nav ml-auto">
+                        <li><a class="btn btn-sm btn-success" href="javascript:;" data-toggle="modal" data-target="#modalReadMe">Read
+                                Me</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <main class="py-4">
+            <div class="container-fluid">
+                <div id="appFeed">
+                    <draggable class="row" v-model="pref.screens" @update="onScreenMoved" :options="{handle:'.card-dagger'}">
+                        <div class="col-sm-4" v-for="sc in getScreens()" :key="sc.name">
+                            <div class="card" style="height: 400px; margin-bottom: 5px;">
+                                <div class="card-header card-dagger">
+                                    <div class="row">
+                                        <div class="col-sm-9">
+                                            @{{sc.name}}
+                                        </div>
+                                        <div class="col-sm-3 text-right">
+                                            <i class="fa fa-arrows-alt"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body" v-if="sc.loading">
+                                    <div class="lds-ripple">
+                                        <div></div>
+                                        <div></div>
+                                    </div>
+                                </div>
+                                <div class="card-body card-body-feeds" v-if="!sc.loading">
+                                    <ul class="list-group list-group-flush" v-if="sc.tweets && sc.tweets.length>0">
+                                        <tweet v-bind:tweet="t" v-for="t in sc.tweets" :key="t.id_str"></tweet>
+                                    </ul>
+                                    <p v-if="sc.tweets && sc.tweets.length<1"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </draggable>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div class="modal fade" id="modalReadMe" tabindex="-1" role="dialog" aria-labelledby="modalReadMeLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalReadMeLabel">Read Me</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h5>Command to run the app</h6>
+                        <p><em>Pre-requisites: You must have Node.js and npm installed.</em></p>
+                        <p>
+                            <strong>API Key</strong><br>
+                            You should make sure you update the files with your name, Twitter API key, and contact
+                            information.<br>
+                        </p>
+                        <p>
+                            If you have trouble with getting a Twitter Developer account, you could follow these steps
+                            listed
+                            <a href="https://docs.google.com/document/d/1p4twl1CmV5MIcZaWOkDzZD6WXJABxupl5dNcjlYsbSA/edit?usp=sharing"
+                                target="_blank">
+                                in this document
+                            </a>
+                        </p>
+
+                        <p>
+                            <strong>Build and Run</strong><br>
+                            If you're not yet running the static server, you can do so by running the following
+                            command on your terminal:
+                        </p>
+                        <pre>npm install</pre>
+                        <pre>npm run gulp</pre>
+                        <pre>npm start</pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<!--<script src="vue.js"></script>-->
+
+<!-- CDNJS :: Sortable (https://cdnjs.com/) -->
+<script src="//cdn.jsdelivr.net/npm/sortablejs@1.7.0/Sortable.min.js"></script>
+<!-- CDNJS :: Vue.Draggable (https://cdnjs.com/) -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/Vue.Draggable/2.17.0/vuedraggable.min.js"></script>
+
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/moment.min.js"></script>
+<script src="assets/js/underscore-min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/popper.min.js"></script>
+<script src="assets/js/axios.min.js"></script>
+<script src="assets/js/app.min.js"></script>
+
+</html>

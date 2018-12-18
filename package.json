@@ -1,0 +1,29 @@
+{
+  "name": "makeschoool-challenge",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "bootstrap": "^4.1.3",
+    "http-server": "^0.11.1",
+    "jquery": "^3.3.1",
+    "moment": "^2.23.0",
+    "popper.js": "^1.14.6",
+    "twitter-proxy": "^2.0.0"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "gulp": "gulp"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.4.2",
+    "del": "^3.0.0",
+    "eslint": "^5.10.0",
+    "gulp": "^4.0.0",
+    "gulp-autoprefixer": "^6.0.0",
+    "gulp-clean-css": "^4.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-uglify": "^3.0.1"
+  }
+}
