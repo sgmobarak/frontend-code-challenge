@@ -1,5 +1,7 @@
 #  Frontend Code Challenge
 
+Frontend code challenge - HTML, CSS, JavaScript, jQuery, Vue.js, Node, Gulp etc.
+
 Pre-requisites: You must have Node.js and npm installed. This project is tested with node -v v8.12.0 and npm -v 6.4.1
 
 ## Setup
